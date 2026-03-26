@@ -659,5 +659,29 @@
       "lifespan": "13 – 14 years",
       "weight": "19 lbs"
     }
+  },
+  {
+    "name": "Test Fox",
+    "taxonomy": {
+      "kingdom": "Test",
+      "phylum": "Test",
+      "class": "Test",
+      "order": "Test",
+      "family": "Test",
+      "genus": "Test",
+      "scientific_name": "Test testus"
+    },
+    "locations": [
+      "Test Location"
+    ],
+    "characteristics": {
+      "temperament": "Alert, friendly, and confident",
+      "diet": "Test",
+      "type": "Test",
+      "color": "BlackWhiteTan",
+      "skin_type": "Hair",
+      "lifespan": "13 – 14 years",
+      "weight": "19 lbs"
+    }
   }
 ]
