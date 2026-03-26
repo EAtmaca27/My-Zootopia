@@ -1,5 +1,8 @@
 import json
 
+from sympy import dirichlet_eta
+from torch.serialization import location_tag
+
 
 def load_data(file_path):
   """ Loads a JSON file """
@@ -14,25 +17,35 @@ def get_animals_data():
 
 def generate_animals_data(animals_data):
     output = ""
+    diet = ""
+    type_ = ""
+    location = ""
+
     for animal in animals_data:
         output += "<li class='cards__item'>"
         if "name" in animal:
-            output += f"Name: {animal['name']}<br/>\n"
+            output += f"<div class='card__title'>{animal['name']}</div>"
+
+        output += '<p class="card__text">'
 
         # Check if characteristics exists, then check if diet and type exist
         if "characteristics" in animal:
             characteristic = animal['characteristics']
 
             if "diet" in characteristic:
-                output += f"Diet: {characteristic['diet']}<br/>\n"
+                diet = f"<strong>Diet:</strong> {characteristic['diet']}<br/>\n"
 
             if "type" in characteristic:
-                output += f"Type: {characteristic['type']}<br/>\n"
+                type_ = f"<strong>Type:</strong> {characteristic['type']}<br/>\n"
 
         # Check if location exists and not empty
         if "locations" in animal and len(animal['locations']) > 0:
-            output += f"Location: {animal['locations'][0]}<br/>\n"
+            location = f"<strong>Location:</strong> {animal['locations'][0]}<br/>\n"
 
+        output += diet
+        output += location
+        output += type_
+        output += "</p>"
         output += "</li>"
 
     return output
