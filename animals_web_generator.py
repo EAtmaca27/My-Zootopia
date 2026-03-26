@@ -15,22 +15,25 @@ def get_animals_data():
 def generate_animals_data(animals_data):
     output = ""
     for animal in animals_data:
+        output += "<li class='cards__item'>"
         if "name" in animal:
-            output += f"Name: {animal['name']}\n"
+            output += f"Name: {animal['name']}<br/>\n"
 
         # Check if characteristics exists, then check if diet and type exist
         if "characteristics" in animal:
             characteristic = animal['characteristics']
 
             if "diet" in characteristic:
-                output += f"Diet: {characteristic['diet']}\n"
+                output += f"Diet: {characteristic['diet']}<br/>\n"
 
             if "type" in characteristic:
-                output += f"Type: {characteristic['type']}\n"
+                output += f"Type: {characteristic['type']}<br/>\n"
 
         # Check if location exists and not empty
         if "locations" in animal and len(animal['locations']) > 0:
-            output += f"Location: {animal['locations'][0]}\n"
+            output += f"Location: {animal['locations'][0]}<br/>\n"
+
+        output += "</li>"
 
     return output
 
